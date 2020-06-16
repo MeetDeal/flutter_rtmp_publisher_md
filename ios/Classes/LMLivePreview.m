@@ -275,9 +275,10 @@
         _cameraButton = [UIButton new];
         _cameraButton.size = CGSizeMake(44, 44);
         _cameraButton.origin = CGPointMake(_closeButton.left - 10 - _cameraButton.width, 20);
-        [_cameraButton setImage:[UIImage imageNamed:@"camra_preview"] forState:UIControlStateNormal];
+        // [_cameraButton setImage:[UIImage imageNamed:@"camra_preview"] forState:UIControlStateNormal];
         _cameraButton.exclusiveTouch = YES;
         __weak typeof(self) _self = self;
+        [_cameraButton setTitle:@"switch camera" forState:UIControlStateNormal];
         [_cameraButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
             AVCaptureDevicePosition devicePositon = _self.session.captureDevicePosition;
             _self.session.captureDevicePosition = (devicePositon == AVCaptureDevicePositionBack) ? AVCaptureDevicePositionFront : AVCaptureDevicePositionBack;
